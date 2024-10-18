@@ -18,9 +18,9 @@ class DetailPemasukan extends StatelessWidget {
             fontFamily: 'Times New Roman',
           ),
         ),
-        backgroundColor: Color(0xFF002925), // Warna hijau gelap
+        backgroundColor: Color(0xFF002925), 
       ),
-      backgroundColor: Color(0xFF00100F), // Background hijau gelap
+      backgroundColor: Color(0xFF00100F),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -77,7 +77,7 @@ class DetailPemasukan extends StatelessWidget {
                     ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor:
-                          Color(0xFF00423A), // Warna tombol hijau gelap
+                          Color(0xFF00423A), 
                       padding:
                           EdgeInsets.symmetric(horizontal: 25, vertical: 15),
                       textStyle: TextStyle(fontSize: 16),
@@ -104,7 +104,7 @@ class DetailPemasukan extends StatelessWidget {
                             actions: <Widget>[
                               TextButton(
                                 onPressed: () {
-                                  Navigator.of(context).pop(); // Tutup dialog
+                                  Navigator.of(context).pop(); 
                                 },
                                 child: Text(
                                   'Batal',
@@ -117,9 +117,9 @@ class DetailPemasukan extends StatelessWidget {
                                 onPressed: () async {
                                   await ApiService()
                                       .deletePemasukan(pemasukan.id);
-                                  Navigator.of(context).pop(); // Tutup dialog
+                                  Navigator.of(context).pop(); 
                                   Navigator.of(context)
-                                      .pop(); // Kembali ke halaman sebelumnya
+                                      .pop(); 
                                 },
                                 child: Text(
                                   'Hapus',

@@ -5,7 +5,6 @@ import '../models/pemasukan_model.dart';
 class ApiService {
   final String baseUrl = 'http://103.196.155.42/api/keuangan';
 
-  // Ambil semua pemasukan dari API
   Future<List<Pemasukan>> getAllPemasukan() async {
     final response = await http.get(Uri.parse('$baseUrl/pemasukan'));
     if (response.statusCode == 200) {
@@ -22,7 +21,6 @@ class ApiService {
     }
   }
 
-  // Create new pemasukan
   Future<void> createPemasukan(String source, int amount, int frequency) async {
     final response = await http.post(
       Uri.parse('$baseUrl/pemasukan'),
@@ -40,11 +38,10 @@ class ApiService {
     }
   }
 
-  // Update pemasukan (perbaikan endpoint)
   Future<void> updatePemasukan(
       int id, String source, int amount, int frequency) async {
     final response = await http.put(
-      Uri.parse('$baseUrl/pemasukan/$id/update'), // Perbaikan URL
+      Uri.parse('$baseUrl/pemasukan/$id/update'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -60,7 +57,6 @@ class ApiService {
     }
   }
 
-  // Delete pemasukan
   Future<void> deletePemasukan(int id) async {
     final response =
         await http.delete(Uri.parse('$baseUrl/pemasukan/$id/delete'));

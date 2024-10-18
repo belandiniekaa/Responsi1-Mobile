@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'home_page.dart'; // Import HomePage here
-import 'register_page.dart'; // Import register page
+import 'home_page.dart'; 
+import 'register_page.dart'; 
 
 class LoginPage extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Future<void> login() async {
     final response = await http.post(
-      Uri.parse('http://103.196.155.42/api/login'), // Ganti URL sesuai kebutuhan
+      Uri.parse('http://103.196.155.42/api/login'), 
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -26,13 +26,11 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     if (response.statusCode == 200) {
-      // Arahkan ke homepage jika login berhasil
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => HomePage()),
       );
     } else {
-      // Tampilkan pesan kesalahan
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Login gagal! Silakan coba lagi.')),
       );
@@ -68,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                 labelText: 'Email',
                 labelStyle: TextStyle(color: Colors.tealAccent),
                 filled: true,
-                fillColor: Color(0xFF002925), // Warna kolom input
+                fillColor: Color(0xFF002925), 
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                   borderSide: BorderSide.none,
@@ -83,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                 labelText: 'Password',
                 labelStyle: TextStyle(color: Colors.tealAccent),
                 filled: true,
-                fillColor: Color(0xFF002925), // Warna kolom input
+                fillColor: Color(0xFF002925), 
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                   borderSide: BorderSide.none,
@@ -97,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: login,
               child: Text('Login'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF003933), // Tombol berwarna hijau gelap
+                backgroundColor: Color(0xFF003933), 
                 padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -114,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
               },
               child: Text('Belum punya akun? Daftar di sini!'),
               style: TextButton.styleFrom(
-                foregroundColor: Colors.tealAccent, // Warna teks
+                foregroundColor: Colors.tealAccent,
               ),
             ),
           ],

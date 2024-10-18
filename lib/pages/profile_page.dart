@@ -16,7 +16,6 @@ class _ProfilePageState extends State<ProfilePage> {
     _loadUserData();
   }
 
-  // Fungsi untuk memuat data pengguna yang disimpan di SharedPreferences
   _loadUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -26,14 +25,12 @@ class _ProfilePageState extends State<ProfilePage> {
     });
   }
 
-  // Fungsi untuk logout
   _logout() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.remove('authToken'); // Hapus token autentikasi
-    await prefs.remove('namaPengguna'); // Hapus nama pengguna
-    await prefs.remove('emailPengguna'); // Hapus email pengguna
+    await prefs.remove('authToken'); 
+    await prefs.remove('namaPengguna'); 
+    await prefs.remove('emailPengguna'); 
 
-    // Arahkan ke halaman login setelah logout
     Navigator.pushReplacementNamed(context, '/login');
   }
 
@@ -75,7 +72,7 @@ class _ProfilePageState extends State<ProfilePage> {
             SizedBox(height: 10),
             Text(
               namaPengguna ??
-                  'Loading...', // Menampilkan nama pengguna yang diambil dari SharedPreferences
+                  'Loading...',
               style: TextStyle(
                   fontSize: 22,
                   color: Colors.white,
@@ -92,7 +89,7 @@ class _ProfilePageState extends State<ProfilePage> {
             SizedBox(height: 10),
             Text(
               emailPengguna ??
-                  'Loading...', // Menampilkan email pengguna yang diambil dari SharedPreferences
+                  'Loading...', 
               style: TextStyle(
                   fontSize: 22,
                   color: Colors.white,
@@ -100,7 +97,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: 20),
             ElevatedButton.icon(
-              onPressed: _logout, // Memanggil fungsi logout
+              onPressed: _logout,
               icon: Icon(Icons.logout),
               label: Text('Logout'),
               style: ElevatedButton.styleFrom(

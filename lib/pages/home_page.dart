@@ -3,8 +3,8 @@ import '../models/pemasukan_model.dart';
 import '../services/api_service.dart';
 import 'add_pemasukan_page.dart';
 import 'detail_pemasukan.dart';
-import 'login_page.dart'; // Pastikan login_page.dart diimport
-import 'profile_page.dart'; // Tambahkan ini untuk navigasi ke halaman profil
+import 'login_page.dart'; 
+import 'profile_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -23,7 +23,6 @@ class _HomePageState extends State<HomePage> {
     refreshPemasukan();
   }
 
-  // Fungsi untuk refresh data pemasukan
   void refreshPemasukan() {
     setState(() {
       futurePemasukan = apiService.getAllPemasukan();
@@ -41,7 +40,7 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Color(0xFF00312C), // Warna drawer header
+                  color: Color(0xFF00312C), 
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +56,6 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(height: 10),
                     ElevatedButton.icon(
                       onPressed: () async {
-                        // Tambahkan fungsi pengembalian setelah menambahkan
                         final result = await Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -71,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                       label: Text('Tambah Pemasukan',
                           style: TextStyle(fontFamily: 'Times New Roman')),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF003933), // Warna tombol
+                        backgroundColor: Color(0xFF003933),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -92,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 onTap: () {
-                  Navigator.pop(context); // Menutup drawer dan tetap di Home
+                  Navigator.pop(context);
                 },
               ),
               ListTile(
@@ -105,14 +103,13 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 onTap: () {
-                  // Navigasi ke halaman profile
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => ProfilePage()),
                   );
                 },
               ),
-              const SizedBox(height: 20), // Spacer pengganti
+              const SizedBox(height: 20), 
               ListTile(
                 leading: Icon(Icons.logout),
                 title: Text(
@@ -133,7 +130,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      backgroundColor: Color(0xFF001916), // Warna background
+      backgroundColor: Color(0xFF001916), 
       appBar: AppBar(
         title: const Text(
           'Aplikasi Manajemen Keuangan',
@@ -141,7 +138,7 @@ class _HomePageState extends State<HomePage> {
             fontFamily: 'Times New Roman',
           ),
         ),
-        backgroundColor: Color(0xFF00211D), // Warna AppBar
+        backgroundColor: Color(0xFF00211D), 
       ),
       body: FutureBuilder<List<Pemasukan>>(
         future: futurePemasukan,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'login_page.dart'; // Import LoginPage here
-import 'home_page.dart'; // Import HomePage here
+import 'login_page.dart'; 
+import 'home_page.dart'; 
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -17,7 +17,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Future<void> register() async {
     final response = await http.post(
       Uri.parse(
-          'http://103.196.155.42/api/registrasi'), // Ganti URL sesuai kebutuhan
+          'http://103.196.155.42/api/registrasi'), 
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -29,13 +29,11 @@ class _RegisterPageState extends State<RegisterPage> {
     );
 
     if (response.statusCode == 201) {
-      // Arahkan ke login setelah registrasi berhasil
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => LoginPage()),
       );
     } else {
-      // Tampilkan pesan kesalahan
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Registrasi gagal! Silakan coba lagi.')),
       );
@@ -71,7 +69,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 labelText: 'Nama',
                 labelStyle: TextStyle(color: Colors.tealAccent),
                 filled: true,
-                fillColor: Color(0xFF002925), // Warna kolom input
+                fillColor: Color(0xFF002925), 
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                   borderSide: BorderSide.none,
@@ -86,7 +84,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 labelText: 'Email',
                 labelStyle: TextStyle(color: Colors.tealAccent),
                 filled: true,
-                fillColor: Color(0xFF002925), // Warna kolom input
+                fillColor: Color(0xFF002925), 
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                   borderSide: BorderSide.none,
@@ -101,7 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 labelText: 'Password',
                 labelStyle: TextStyle(color: Colors.tealAccent),
                 filled: true,
-                fillColor: Color(0xFF002925), // Warna kolom input
+                fillColor: Color(0xFF002925),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                   borderSide: BorderSide.none,
@@ -116,7 +114,7 @@ class _RegisterPageState extends State<RegisterPage> {
               child: Text('Daftar'),
               style: ElevatedButton.styleFrom(
                 backgroundColor:
-                    Color(0xFF003933), // Tombol berwarna hijau gelap
+                    Color(0xFF003933), 
                 padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -133,7 +131,7 @@ class _RegisterPageState extends State<RegisterPage> {
               },
               child: Text('Sudah punya akun? Masuk di sini!'),
               style: TextButton.styleFrom(
-                foregroundColor: Colors.tealAccent, // Warna teks
+                foregroundColor: Colors.tealAccent, 
               ),
             ),
           ],
